@@ -1,17 +1,34 @@
-# Welcome to MkDocs
+# dvc-project-template
+DVC project template
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## STEPS -
 
-## Commands
+### STEP 01- Create a repository by using template repository
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### STEP 02- Clone the new repository
 
-## Project layout
+### STEP 03- Create a conda environment after opening the repository in VSCODE
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```bash
+conda create --prefix ./env python=3.7 -y
+```
+
+```bash
+conda activate ./env
+```
+OR
+```bash
+source activate ./env
+```
+
+### STEP 04- install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+### STEP 05- initialize the dvc project
+```bash
+dvc init
+```
+
+### STEP 06- commit and push the changes to the remote repository
