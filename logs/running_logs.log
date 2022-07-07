@@ -13,3 +13,11 @@
 [2022-07-07 22:53:02,587: INFO: common]: created directory at: artifacts\prepared
 [2022-07-07 22:53:02,587: INFO: stage_01_data_prep]: >>>>> stage data preperation completed!<<<<<
 
+[2022-07-07 23:45:56,436: INFO: stage_01_data_prep]: 
+********************
+[2022-07-07 23:45:56,436: INFO: stage_01_data_prep]: >>>>> stage data preperation started <<<<<
+[2022-07-07 23:45:56,438: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-07-07 23:45:56,438: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-07-07 23:45:56,438: INFO: common]: created directory at: artifacts\prepared
+[2022-07-07 23:46:03,139: INFO: stage_01_data_prep]: >>>>> stage data preperation completed!<<<<<
+
