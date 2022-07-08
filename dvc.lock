@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  data_preperation:
+    cmd: python src/stage_01_data_prep.py
+    deps:
+    - path: data/data.xml
+      md5: a304afb96060aad90176268345e10355
+      size: 37916850
+    - path: src/stage_01_data_prep.py
+      md5: cc021e75f611e7ff9ec308786b62836c
+      size: 2486
+    - path: src/utils
+      md5: 4b087a9e10e1097430421e65280dc2ba.dir
+      size: 9378
+      nfiles: 9
+    outs:
+    - path: artifacts/prepared
+      md5: 9b913adc9b855ee4bd5eda00408cc906.dir
+      size: 23861351
+      nfiles: 2
