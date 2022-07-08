@@ -7,6 +7,8 @@ import random
 import xml.etree.ElementTree as ET
 import re
 import joblib
+import numpy as np
+import scipy.sparse as sparse
 
 
 def process_post(fd_in, fd_out_train, fd_out_test, target_tag, split):
@@ -14,7 +16,7 @@ def process_post(fd_in, fd_out_train, fd_out_test, target_tag, split):
     column_names = "pid\tlabel\ttext\n"
     fd_out_train.write(column_names)
     fd_out_test.write(column_names)
-    
+
     for line in tqdm(fd_in):
         try:
             # whatever random line is being read it will decide wheather it is train or tesgt
@@ -36,4 +38,15 @@ def process_post(fd_in, fd_out_train, fd_out_test, target_tag, split):
 
 
 
+def save_matrix(df, text_matrix, out_path):
+    pid_matrix = sparse.csr_matrix(df.pid.astype(np.int64)).T
+    label_matrix = sparse.csr_matrix(df.label.astype(np.int64)).T
 
+    result = sparse.hstack([pid_matrix, label_matrix, text_matrix])
+
+    msg = f"the output matrix saved at {out_path} of shape: {result.shape}"
+    logging.info(msg)
+    joblib.dump(result, out_path )
+    
+
+    

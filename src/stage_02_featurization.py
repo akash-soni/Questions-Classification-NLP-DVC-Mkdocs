@@ -63,7 +63,7 @@ def main(config_path, params_path):
     tfidf.fit(train_words_binary_matrix)
     train_words_tfidf_matrix = tfidf.transform(train_words_binary_matrix)
     # call a function to save this training data matrix so later it can be used for training
-    save_matrix(df=df_train, matrix=train_words_tfidf_matrix, out_path=featurized_train_dir_path)
+    save_matrix(df=df_train, text_matrix=train_words_tfidf_matrix, out_path=featurized_train_dir_path)
 
     # TEST DATA
     # convert data into dataframe
@@ -76,7 +76,7 @@ def main(config_path, params_path):
     # creating TFIDF vectorizer on top of BOW 
     test_words_tfidf_matrix = tfidf.transform(test_words_binary_matrix)
     # call a function to save this test data matrix so later it can be used for training
-    save_matrix(df=df_test, matrix=test_words_tfidf_matrix, out_path=featurized_test_dir_path)
+    save_matrix(df=df_test, text_matrix=test_words_tfidf_matrix, out_path=featurized_test_dir_path)
 
 
 if __name__ == '__main__':
