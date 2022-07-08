@@ -13,6 +13,35 @@ stages:
     deps:
     - src/stage_02_featurization.py
     - src/utils
-    - data/prepared
+    - artifacts/prepared
     outs:
     - artifacts/features
+
+  train:
+    cmd: python src/stage_03_training.py
+    deps:
+    - src/stage_03_training.py
+    - src/utils
+    - artifacts/features/train.pkl
+    outs:
+    - artifacts/model/model.pkl
+
+  evaluation:
+    cmd: python src/stage_04_evaluate.py
+    deps:
+    - src/stage_04_evaluate.py
+    - src/utils
+    - artifacts/features/test.pkl
+    - artifacts/model/model.pkl
+    metrics:
+      - scores.json :
+          cache: false
+    plots:
+      - prc.json:
+          cache: false
+          x: recall
+          y: precision
+      - roc.json:
+          cache: false
+          x: fpr
+          y: tpr

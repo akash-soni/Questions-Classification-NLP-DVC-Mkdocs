@@ -39,9 +39,3 @@ def get_df(path_to_data: str,
     logging.info(f"The input data frame {path_to_data} of size {df.shape} is read.")
     return df
 
-def save_matrix(df, matrix, out_path):
-    id_matrix = df.pid.astype(np.int64)
-    
-
-    pass
-    
