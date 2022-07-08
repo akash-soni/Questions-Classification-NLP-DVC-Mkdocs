@@ -1,13 +1,20 @@
 from cProfile import label
 import logging
 from random import random
+from turtle import heading
 from tqdm import tqdm
 import random
 import xml.etree.ElementTree as ET
 import re
+import joblib
+
 
 def process_post(fd_in, fd_out_train, fd_out_test, target_tag, split):
     line_num = 1
+    column_names = "pid\tlabel\ttext\n"
+    fd_out_train.write(column_names)
+    fd_out_test.write(column_names)
+    
     for line in tqdm(fd_in):
         try:
             # whatever random line is being read it will decide wheather it is train or tesgt
@@ -26,3 +33,7 @@ def process_post(fd_in, fd_out_train, fd_out_test, target_tag, split):
         except Exception as e:
             msg = f"skipping the broken lines {line_num}: {e}\n"
             logging.exception(msg)
+
+
+
+

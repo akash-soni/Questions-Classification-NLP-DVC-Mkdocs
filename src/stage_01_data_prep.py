@@ -5,8 +5,7 @@ import os
 import logging
 import shutil
 from tqdm import tqdm
-from src.utils.common import read_yaml, create_directories
-from src.utils.data_mgmt import process_post
+from src.utils import read_yaml, create_directories, process_post
 import random
 
 

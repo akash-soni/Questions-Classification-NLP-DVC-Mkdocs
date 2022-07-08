@@ -1,17 +1,7 @@
 # featurization stage
 
-```
-python
-
+```python
 from sklearn.feature_extraction.text import CountVectorizer
-
-
- corpus = [
-     "zebra apple ball cat cat",
-     "ball cat dog elephant",
-     "very very unique"
-]
-
 
 max_features = 4
 ngrams = 2 # tri gram

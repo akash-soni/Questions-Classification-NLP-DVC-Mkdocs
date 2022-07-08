@@ -4,7 +4,7 @@ site_name: Questions-Classification-NLP-DVC-Mkdocs
 nav:
   - Home: index.md
   - Data-prep-stage: data_prep.md
-  - Featurization-stage: featurization.md
+  - Featurization: featurization.md
 
 site_author: Akash soni
 site_description: >-

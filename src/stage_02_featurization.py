@@ -4,7 +4,7 @@ import logging
 import numpy as np
 import shutil
 from tqdm import tqdm
-from src.utils.common import read_yaml, create_directories, get_df
+from src.utils import read_yaml, create_directories, get_df, save_matrix
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 
@@ -62,6 +62,8 @@ def main(config_path, params_path):
     tfidf = TfidfTransformer(smooth_idf = False)
     tfidf.fit(train_words_binary_matrix)
     train_words_tfidf_matrix = tfidf.transform(train_words_binary_matrix)
+    # call a function to save this training data matrix so later it can be used for training
+    save_matrix(df=df_train, matrix=train_words_tfidf_matrix, out_path=featurized_train_dir_path)
 
     # TEST DATA
     # convert data into dataframe
@@ -73,8 +75,9 @@ def main(config_path, params_path):
     test_words_binary_matrix = bag_of_words.transform(test_words)
     # creating TFIDF vectorizer on top of BOW 
     test_words_tfidf_matrix = tfidf.transform(test_words_binary_matrix)
+    # call a function to save this test data matrix so later it can be used for training
+    save_matrix(df=df_test, matrix=test_words_tfidf_matrix, out_path=featurized_test_dir_path)
 
-    # call a function to save this matrix
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
