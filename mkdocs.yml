@@ -15,7 +15,7 @@ repo_url: https://github.com/akash-soni/Questions-Classification-NLP-DVC-Mkdocs
 
 # Configuration
 theme:
-  name: material
+  name: readthedocs
   features:
     - navigation.tabs
     - navigation.sections
